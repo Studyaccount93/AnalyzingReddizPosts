@@ -430,7 +430,7 @@ for submission in tqdm(reddit.subreddit(subreddit_name).search(search_term,
         h_index2 = 0
         sorted_by_level2 = sorted(CommentsPerLevel_List2, key=lambda tup: tup[0])
         for level in sorted_by_level2:
-            if level[0] < level[1]:
+            if level[0] <= level[1]:
                 h_index2 +=1
         r = h_index2+(1/submission.num_comments)
         print("Determining number of unique users...")
@@ -484,7 +484,7 @@ if not get_post_comments(submission)==empty:
     sorted_by_level2 = sorted(CommentsPerLevel_List2, key=lambda tup: tup[0])
     for level in sorted_by_level2:
         time.sleep(0.01)
-        if level[0] < level[1]:
+        if level[0] <= level[1]:
             h_index2 +=1
     r = h_index2+(1/submission.num_comments)
     check_post2(submission.comments)
